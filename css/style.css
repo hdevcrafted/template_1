@@ -56,8 +56,7 @@ body {
 }
 
 .header .nav .icon span {
-  background-color: #333;
-  height: 1px;
+  border-bottom: 2px solid #222;
   width: 100%;
   margin-bottom: 6px;
 }
