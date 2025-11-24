@@ -51,9 +51,11 @@ body {
 }
 
 .header .nav {
+  /* Using absolute postion so when the menu is open it won't affect header height */
   position: absolute;
   right: 20px;
-  top: 32px;
+  /* parent element has 20px padding and height of 24px, this element has 18px height */
+  top: 23px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -79,6 +81,9 @@ body {
 .header .nav .icon span:nth-child(2) {
   width: 65%;
   transition: 0.3s;
+}
+.header .nav .icon span:last-child {
+  margin-bottom: 0;
 }
 
 .header .nav ul {
