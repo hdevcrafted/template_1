@@ -138,7 +138,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  line-height: 1.5;
+  line-height: 1.7;
   /* without cover for <bg-size> there might be additional empty space around background */
   background: no-repeat center/cover url('../img/hero-background.jpg');
   height: calc(100vh - 64px);
@@ -146,4 +146,14 @@ body {
 
 .hero h1 {
   margin: 0;
+  padding-bottom: 20px;
+  font-size: 2.3rem;
+  color: var(--main-color);
+}
+
+.hero p {
+  max-width: 350px;
+  text-align: center;
+  margin: 0;
+  font-size: 1.1rem;
 }
