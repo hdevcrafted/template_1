@@ -134,9 +134,14 @@ body {
 /* Main */
 /* Hero section */
 .hero {
-  
-  background: no-repeat center url('../img/hero-background.jpg');
-  height: calc(); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 1.5;
+  /* without cover for <bg-size> there might be additional empty space around background */
+  background: no-repeat center/cover url('../img/hero-background.jpg');
+  height: calc(100vh - 64px);
 }
 
 .hero h1 {
