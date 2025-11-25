@@ -1,6 +1,7 @@
 /* Vars */
 :root {
   --main-color: #10cab7;
+  --secondary-color: #2b4856;
 }
 /* Global rules */
 * {
@@ -19,28 +20,21 @@ body {
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .container{
-    width: 750px;
-  }
+.special-heading {
+  margin: 0;
+  color: #ddd;
+  font-weight: 900;
+  font-size: 5rem;
+  text-align: center;
 }
 
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
+.navigatable-sections {
+  position: relative;
 }
-
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
 /* Header */
 
 .header {
-  padding: 20px;
+  padding: 20px 15px;
   display: flex;
   align-items: center;
   position: relative;
@@ -53,7 +47,7 @@ body {
 .header .nav {
   /* Using absolute postion so when the menu is open it won't affect header height */
   position: absolute;
-  right: 20px;
+  right: 15px;
   /* parent element has 20px padding and height of 24px, this element has 18px height */
   top: 23px;
   display: flex;
@@ -116,15 +110,32 @@ body {
 }
 
 .header .nav a {
+  position: relative;
   display: block;
   padding: 15px;
   color: #222;
+  font-weight: 600;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.header .nav a:hover {
+.header .nav a::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  bottom: 12px;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.header .nav li a:hover {
   padding-left: 25px;
+}
+
+.header .nav li a:hover::after {
+  width: 2.7rem;
 }
 
 .header .nav li:not(:last-child) {
@@ -156,4 +167,144 @@ body {
   text-align: center;
   margin: 0;
   font-size: 1.1rem;
+}
+
+/* Features section */
+.features {
+  padding: 20px 0;
+  text-align: center;
+  display: grid;
+  gap: 1.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 956px){
+
+  .features .feat:last-child {
+    grid-column: 1/-1;
+  }
+}
+
+.features .feat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5rem;
+}
+
+.features .feat h3 {
+  font-weight: 800;
+}
+
+.features .feat p {
+  line-height: 1.7;
+  color: #777;
+}
+
+.features i {
+  color: var(--main-color);
+}
+
+/* services */
+
+#services {
+  margin: 0 auto;
+  background-color: #f6f6f6;
+}
+
+#services .subheading {
+  margin-top: -28px;
+  text-align: center;
+  color: #222;
+  font-weight: 500;
+}
+
+#services .container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+
+#services .side::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -25px;
+  width: 100px;
+  height: 350px;
+  background-color: var(--secondary-color);
+}
+
+#services .side img {
+  position: relative;
+  right: 15px;
+}
+
+#services .list-container {
+  max-width: 70%;
+  padding: 0 20px;
+}
+
+#services .list-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+#services .list-container ul li {
+  display: flex;
+  flex: 1 250px;
+  padding: 20px;
+}
+
+#services .list-container ul li div {
+  padding-left: 1.2rem;
+}
+
+#services .list-container ul li h3 {
+  display: inline-block;
+  margin: 0;
+}
+
+#services .list-container ul i {
+  color: var(--main-color);
+}
+
+@media (max-width: 990px) {
+  .side {
+    display: none;
+  }
+  #services .list-container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container{
+    width: 750px;
+  }
+  .header {
+    padding: 20px 150px;
+  }
+  .header .nav {
+    right: 150px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
