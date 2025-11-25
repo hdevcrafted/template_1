@@ -2,6 +2,7 @@
 :root {
   --main-color: #10cab7;
   --secondary-color: #2b4856;
+  --darker-bg: #f6f6f6;
 }
 /* Global rules */
 * {
@@ -22,10 +23,28 @@ body {
 
 .special-heading {
   margin: 0;
+  padding-top: 2rem;
   color: #ddd;
   font-weight: 900;
   font-size: 5rem;
   text-align: center;
+}
+
+.special-heading  + .subheading {
+  margin-top: -28px;
+  text-align: center;
+  color: #666;
+  font-weight: 500;
+}
+
+@media (max-width: 400px){
+  .special-heading {
+    font-size: 3.7rem;
+  }
+  .special-heading  + .subheading {
+  margin-top: -20px;
+  font-size: 80%;
+  }
 }
 
 .navigatable-sections {
@@ -84,7 +103,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: #f6f6f6;
+  background-color: var(--darker-bg);
   min-width: 200px;
   position: relative;
   top: 10px;
@@ -99,7 +118,7 @@ body {
   content: "";
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent #f6f6f6 transparent;
+  border-color: transparent transparent var(--darker-bg) transparent;
   position: absolute;
   right: 5px;
   top: -20px;
@@ -210,27 +229,21 @@ body {
 
 #services {
   margin: 0 auto;
-  background-color: #f6f6f6;
-}
-
-#services .subheading {
-  margin-top: -28px;
-  text-align: center;
-  color: #222;
-  font-weight: 500;
+  background-color: var(--darker-bg);
 }
 
 #services .container {
   display: flex;
   justify-content: space-around;
   position: relative;
+  padding: 30px 0 50px 0;
 }
 
 #services .side::before {
   content: "";
   position: absolute;
   right: 0;
-  top: -25px;
+  top: 3px;
   width: 100px;
   height: 350px;
   background-color: var(--secondary-color);
@@ -273,6 +286,46 @@ body {
 
 #services .list-container ul i {
   color: var(--main-color);
+}
+
+/* portfolio */
+
+#portfolio .container ul {
+  list-style: none;
+  padding: 0 40px;
+  margin-top: 80px;
+  display: grid;
+  gap: 30px;
+}
+
+@media (min-width: 750px) {
+  #portfolio .container ul {
+    padding: 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+#portfolio .container ul li {
+  background-color: var(--darker-bg);
+  border-radius: 1rem;
+  padding-bottom: 8px;
+  box-shadow: 4px 6px 20px 3px #ccc;
+}
+
+#portfolio .container ul li:hover {
+  position: relative;
+  top: -8px;
+  left: -8px;
+}
+
+#portfolio .container ul li img {
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+#portfolio .container ul li p,
+#portfolio .container ul li h5 {
+  padding: 0 30px;
 }
 
 @media (max-width: 990px) {
